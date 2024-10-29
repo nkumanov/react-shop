@@ -1,0 +1,92 @@
+@use "../../styles/mixin" as mixin;
+
+.orderSummaryWrapper {
+  padding: 60px;
+}
+.cartDetails {
+  @include mixin.display-flex(row, space-between, flex-start);
+}
+
+.orderItemsSummary {
+  width: 65%;
+  border: 1px solid rgb(229, 229, 229);
+
+  article {
+    @include mixin.display-flex(row, space-between, flex-start);
+    padding: 0 2rem;
+    section:nth-of-type(1) {
+      @include mixin.display-flex(row, flex-start, flex-start);
+      padding: 2rem;
+      gap: 1rem;
+      div {
+        img {
+          width: 60px;
+          height: auto;
+          object-fit: contain;
+        }
+
+        &:nth-of-type(2) {
+          div {
+            @include mixin.display-flex(row, flex-start, flex-start);
+            gap: 5px;
+            width: fit-content;
+            border: 1px solid rgb(229, 229, 229);
+            button {
+              width: 25px;
+              height: 25px;
+              border: none;
+              background-color: none;
+              color: black;
+            }
+          }
+        }
+      }
+    }
+
+    section:nth-of-type(2) {
+      padding: 2rem;
+      @include mixin.display-flex(column, space-between, flex-end);
+      gap: 6rem;
+      button {
+        border: none;
+        background: none;
+      }
+      p {
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+.orderPaymentSummary {
+  width: 30%;
+  @include mixin.display-flex(column, flex-end, flex-start);
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  border: 1px solid rgb(229, 229, 229);
+  div {
+    @include mixin.display-flex(row, space-between, flex-start);
+    span {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+    &.paymentProviders {
+      @include mixin.display-flex(row, flex-start, flex-start);
+      gap: 1rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      img {
+        width: 40px;
+        height: auto;
+      }
+    }
+  }
+  button {
+    width: 85%;
+    background-color: black;
+    color: white;
+    border-radius: 2px;
+    padding: 0.5rem;
+    margin: 0 auto;
+  }
+}

@@ -1,0 +1,19 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: black;
+  font-family: "Roboto", sans-serif;
+}
+
+li {
+  list-style: none;
+}

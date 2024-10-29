@@ -1,0 +1,74 @@
+@use "../../styles/colors" as colors;
+@use "../../styles/mixin" as mixin;
+.header {
+  @include mixin.display-flex(column, space-between, center);
+  padding: 1rem;
+  a {
+    color: black;
+    font-size: 1.5rem;
+  }
+  .navSection {
+    @include mixin.display-flex(row, space-between, center);
+    width: 100%;
+    nav {
+      flex-wrap: wrap;
+      @include mixin.display-flex(row, flex-start, flex-start);
+      &:nth-of-type(1) {
+        width: 35%;
+        li {
+          margin-right: 1rem;
+          position: relative;
+          padding-bottom: 1px;
+          list-style: none;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background-color: colors.$border-bottom-floating;
+            transition: width 0.4s ease;
+          }
+          &:hover::after {
+            width: 100%;
+          }
+          a {
+            text-transform: uppercase;
+            font-size: 1.2rem;
+          }
+        }
+      }
+      &:nth-of-type(2) {
+        width: 35%;
+        justify-content: flex-end;
+        li {
+          margin-left: 1.5rem;
+          a {
+            span {
+              font-size: 16px;
+              margin-left: 3px;
+            }
+          }
+        }
+      }
+    }
+
+    article {
+      span {
+        font-size: 2rem;
+        color: white;
+        margin-right: 3px;
+        background-color: black;
+        padding: 6px;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .subNavSection {
+    @include mixin.display-flex(row, flex-start, center);
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}

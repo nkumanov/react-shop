@@ -1,0 +1,12 @@
+@use "../../styles/mixin" as mixin;
+
+.wrapper {
+  @include mixin.display-flex(row, flex-start, flex-start);
+  gap: 1rem;
+}
+
+.dropdownItem {
+  a {
+    font-size: 19px;
+  }
+}
