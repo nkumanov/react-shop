@@ -1,15 +1,21 @@
 import React from "react";
 import { Carousel, OverlayTrigger, Tooltip } from "react-bootstrap";
 import styles from "./Product-card.module.scss";
+import { useNavigate } from "react-router-dom";
 function ProductCard() {
+  const navigate = useNavigate();
   function addProductToWishList(
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void {
     e.stopPropagation();
     console.log("added to wishlist");
   }
+
+  function openProductDetails(productId: string = "1"): void {
+    navigate(`/item/${productId}`);
+  }
   return (
-    <article className={styles.cardWrapper}>
+    <article className={styles.cardWrapper} onClick={() => openProductDetails()}>
       <section className={styles.cardHeader}>
         <OverlayTrigger overlay={<Tooltip>Add to wishlist</Tooltip>}>
           <button

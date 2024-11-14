@@ -1,0 +1,31 @@
+@use "../../styles/colors" as colors;
+@use "../../styles/mixin" as mixin;
+.itemWrapper {
+  width: 100%;
+  @include mixin.display-flex(row, space-around, flex-start);
+  padding: 1rem 0;
+  flex-wrap: wrap;
+  .itemImages {
+    width: 60%;
+    @include mixin.display-flex(row, space-between, flex-start);
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    div {
+      width: 48%;
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+  }
+
+  .itemDetails {
+    width: 30%;
+    h3 {
+      font-weight: 700;
+      font-size: 2rem;
+    }
+  }
+}

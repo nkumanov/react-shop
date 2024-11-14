@@ -1,12 +1,17 @@
 @use "../../styles/mixin" as mixin;
+@use "../../styles/colors" as colors;
 
-.wrapper {
-  @include mixin.display-flex(row, flex-start, flex-start);
-  gap: 1rem;
-}
+.categoryDropdown {
 
-.dropdownItem {
-  a {
-    font-size: 19px;
+  button {
+    background: none;
+    border: none;
+    color: colors.$dark;
   }
+  div{
+    z-index: 10000;
+  }
+}
+.custom-toggle::after {
+  display: none !important;
 }
