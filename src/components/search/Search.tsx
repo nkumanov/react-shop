@@ -1,15 +1,20 @@
-import React from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import ProductCard from "../product-card/Product-card";
-import styles from './Search.module.scss';
+import styles from "./Search.module.scss";
+import { useEffect } from "react";
 function Search() {
-  let items = [1, 2, 3, 4, 5, 6, 7];
-  return (
-    <section className={styles.searchWrapper}>
-      {items.map((element) => (
-        <ProductCard key={element}></ProductCard>
-      ))}
-    </section>
-  );
+  const params = useParams();
+  useEffect(() => {
+    async function getProducts() {
+      console.log('here')
+      const response = await fetch("http://localhost:3000/products/male");
+      const data = await response.json();
+      console.log(data);
+    }
+    getProducts();
+  }, [params]);
+
+  return <section className={styles.searchWrapper}></section>;
 }
 
 export default Search;

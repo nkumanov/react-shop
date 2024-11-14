@@ -1,48 +1,29 @@
 import { Dropdown } from "react-bootstrap";
 import styles from "./Category.module.scss";
-function Category() {
+import { Link } from "react-router-dom";
+type CategoryProps = {
+  title: string;
+  subTitles: { title: string; path: string }[];
+};
+function Category({ title, subTitles }: CategoryProps) {
   return (
     <>
-      <section className={styles.wrapper}>
-        <Dropdown>
-          <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-            Clothes
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1" className={styles.dropdownItem}>
-              <a href="">T-shirts</a>
+      <Dropdown className={styles.categoryDropdown}>
+        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+          {title}
+        </Dropdown.Toggle>
+        <Dropdown.Menu>
+          {subTitles.map((subTitle) => (
+            <Dropdown.Item
+              as={Link}
+              to={subTitle.path}
+              className={styles.dropdownItem}
+            >
+              {subTitle.title}
             </Dropdown.Item>
-            <Dropdown.Item href="#/action-2" className={styles.dropdownItem}>
-              <a href="">Jackets</a>
-            </Dropdown.Item>
-            <Dropdown.Item href="#/action-3" className={styles.dropdownItem}>
-              <a href="">Swimwear</a>
-            </Dropdown.Item>
-            <Dropdown.Item href="#/action-3" className={styles.dropdownItem}>
-              <a href="">Hoodies</a>
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown>
-          <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-            Shoes
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item href="#/action-1" className={styles.dropdownItem}>
-              <a href="">T-shirts</a>
-            </Dropdown.Item>
-            <Dropdown.Item href="#/action-2" className={styles.dropdownItem}>
-              <a href="">Jackets</a>
-            </Dropdown.Item>
-            <Dropdown.Item href="#/action-3" className={styles.dropdownItem}>
-              <a href="">Swimwear</a>
-            </Dropdown.Item>
-            <Dropdown.Item href="#/action-3" className={styles.dropdownItem}>
-              <a href="">Hoodies</a>
-            </Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      </section>
+          ))}
+        </Dropdown.Menu>
+      </Dropdown>
     </>
   );
 }

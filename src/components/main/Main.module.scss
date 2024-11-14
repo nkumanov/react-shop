@@ -1,0 +1,28 @@
+@use "../../styles/mixin" as mixin;
+.mainWrapper {
+  width: 100%;
+  @include mixin.display-flex(row, space-between, flex-start);
+  flex-wrap: wrap;
+  padding: 0 1rem;
+
+  article {
+    background-size: cover; /* Ensures the image fully covers the article */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevents repeating the image */
+    width: 450px; /* Set your desired width */
+    height: 450px; /* Set your desired height */
+    background-image: url("https://img2.ans-media.com/bg/cms/media/1280x750/6710bb4eb25be5.60009885.jpg@webp");
+    @include mixin.display-flex(row, center, center);
+    border-radius: 8px;
+    border: 1px solid transparent;
+    a {
+      font-size: 1.3rem;
+      color: black;
+      font-weight: 500;
+      background-color: white;
+      padding: 0.2rem 1rem;
+      border: 1px solid transparent;
+      border-radius: 8px;
+    }
+  }
+}

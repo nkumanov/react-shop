@@ -16,27 +16,6 @@
       &:nth-of-type(1) {
         width: 35%;
         li {
-          margin-right: 1rem;
-          position: relative;
-          padding-bottom: 1px;
-          list-style: none;
-          &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 2px;
-            width: 0;
-            background-color: colors.$border-bottom-floating;
-            transition: width 0.4s ease;
-          }
-          &:hover::after {
-            width: 100%;
-          }
-          a {
-            text-transform: uppercase;
-            font-size: 1.2rem;
-          }
         }
       }
       &:nth-of-type(2) {
@@ -71,4 +50,15 @@
     width: 100%;
     flex-wrap: wrap;
   }
+}
+
+.categoryDropdown {
+  button {
+    background: none;
+    border: none;
+    color: colors.$dark;
+  }
+}
+.custom-toggle::after {
+  display: none !important;
 }
