@@ -1,18 +1,24 @@
-import styles from "./Header.module.scss";
-import Category from "../categories/Category";
-import { Button, Dropdown, Tab, Tabs } from "react-bootstrap";
-import { Link, useLocation } from "react-router-dom";
-import { headerPath } from "../../shared/header-paths";
-import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
+import { Button, Dropdown } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { headerPath } from "../../shared/header-paths";
+import { fromAuthThunks } from "../../store/slices/auth";
+import { useAppDispatch } from "../../store/store";
 import AuthModal from "../auth/AuthModal";
+import Category from "../categories/Category";
+import styles from "./Header.module.scss";
+import { fromAuthSelectors } from "../../store/slices/auth/index";
+import { useSelector } from "react-redux";
 function Header() {
-  const location = useLocation();
-  const loggedUser = false;
+  const loggedUser = useSelector(fromAuthSelectors.isUserLoggedInSelector);
+  const dispatch = useAppDispatch();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const login = () => {
+    dispatch(fromAuthThunks.userLogin({ email: "kumanov@abv.bg", password: "1234567" }));
+  };
   return (
     <header className={styles.header}>
       <section className={styles.navSection}>
@@ -89,13 +95,10 @@ function Header() {
             </>
           ) : (
             <>
-              <Button onClick={handleShow} variant="dark">
+              <Button onClick={handleShow} variant="dark" >
                 Sign in
               </Button>
-              <AuthModal
-                show={show}
-                handleClose={handleClose}
-              ></AuthModal>
+              <AuthModal show={show} handleClose={handleClose}></AuthModal>
             </>
           )}
         </nav>
