@@ -14,4 +14,5 @@ export interface IUserLoginResponse {
   };
 }
 
+
 export interface IUserRegisterResponse extends IUserLoginResponse {}

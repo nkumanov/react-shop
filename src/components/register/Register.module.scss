@@ -1,0 +1,38 @@
+.formWrapper {
+  width: 100%;
+  span.error {
+    color: red;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin: 0 auto;
+    div {
+      width: 100%;
+      margin-top: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      input {
+        border: none;
+        border-bottom: 1px solid gray;
+        outline: none;
+      }
+      span[role="alert"] {
+        color: red;
+      }
+    }
+    button {
+      margin: 1rem auto;
+      width: 50%;
+      padding: 0.3rem;
+      background-color: black;
+      color: white;
+      border: 1px solid transparent;
+      border-radius: 1rem;
+    }
+  }
+}

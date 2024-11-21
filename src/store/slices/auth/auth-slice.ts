@@ -29,7 +29,20 @@ const initialState: AuthState = {
 export const authSlice = createSlice({
   name: authSliceName,
   initialState,
-  reducers: {},
+  reducers: {
+    logout(state: AuthState) {
+      state.logged = null;
+      state.username = null;
+      state.email = null;
+      state.bookmarks = null;
+      state.error = null;
+      state.loading = false;
+      state.userId = null;
+    },
+    clearError(state: AuthState) {
+      state.error = null;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(userLogin.pending, (state) => {
@@ -41,12 +54,13 @@ export const authSlice = createSlice({
         (state, action: PayloadAction<IUserLoginResponse>) => {
           state.logged = true;
           state.loading = false;
-          state.email = action.payload.data.email;
-          state.username = action.payload.data.username;
-          state.userId = action.payload.data.userId;
+          state.email = action.payload.data?.email;
+          state.username = action.payload.data?.username;
+          state.userId = action.payload.data?.userId;
         }
       )
       .addCase(userLogin.rejected, (state, action: PayloadAction<any>) => {
+        console.log(action);
         state.error = action.payload;
       })
       .addCase(userRegister.pending, (state) => {
@@ -69,6 +83,6 @@ export const authSlice = createSlice({
   },
 });
 
-export const {} = authSlice.actions;
+export const { logout, clearError } = authSlice.actions;
 
 export default authSlice.reducer;

@@ -1,23 +1,19 @@
-import { useState } from "react";
-import { Button, Dropdown } from "react-bootstrap";
+import { Dropdown } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { headerPath } from "../../shared/header-paths";
-import { fromAuthThunks } from "../../store/slices/auth";
-import { useAppDispatch } from "../../store/store";
+import { fromAuthSelectors, logout } from "../../store/slices/auth/index";
 import AuthModal from "../auth/AuthModal";
 import Category from "../categories/Category";
 import styles from "./Header.module.scss";
-import { fromAuthSelectors } from "../../store/slices/auth/index";
-import { useSelector } from "react-redux";
+
 function Header() {
   const loggedUser = useSelector(fromAuthSelectors.isUserLoggedInSelector);
-  const dispatch = useAppDispatch();
-  const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const login = () => {
-    dispatch(fromAuthThunks.userLogin({ email: "kumanov@abv.bg", password: "1234567" }));
+  const dispatch = useDispatch();
+  const logoutHandler = () => {
+    localStorage.removeItem("auth");
+    dispatch(logout());
   };
   return (
     <header className={styles.header}>
@@ -74,6 +70,7 @@ function Header() {
                       as="button"
                       className={styles.logoutBtn}
                       title="Log out"
+                      onClick={logoutHandler}
                     >
                       Log out
                     </Dropdown.Item>
@@ -95,10 +92,7 @@ function Header() {
             </>
           ) : (
             <>
-              <Button onClick={handleShow} variant="dark" >
-                Sign in
-              </Button>
-              <AuthModal show={show} handleClose={handleClose}></AuthModal>
+              <AuthModal></AuthModal>
             </>
           )}
         </nav>
