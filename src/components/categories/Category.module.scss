@@ -1,14 +1,10 @@
-@use "../../styles/mixin" as mixin;
-@use "../../styles/colors" as colors;
-
 .categoryDropdown {
-
   button {
     background: none;
     border: none;
-    color: colors.$dark;
+    color: $dark;
   }
-  div{
+  div {
     z-index: 10000;
   }
 }

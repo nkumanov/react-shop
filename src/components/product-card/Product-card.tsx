@@ -8,7 +8,6 @@ function ProductCard() {
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ): void {
     e.stopPropagation();
-    console.log("added to wishlist");
   }
 
   function openProductDetails(productId: string = "1"): void {
