@@ -6,15 +6,23 @@
   padding: 0 1rem;
 
   article {
-    background-size: cover; /* Ensures the image fully covers the article */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevents repeating the image */
-    width: 450px; /* Set your desired width */
-    height: 450px; /* Set your desired height */
-    background-image: url("https://img2.ans-media.com/bg/cms/media/1280x750/6710bb4eb25be5.60009885.jpg@webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 450px;
+    height: 450px;
     @include mixin.display-flex(row, center, center);
     border-radius: 8px;
     border: 1px solid transparent;
+    &:nth-of-type(1) {
+      background-image: url("https://media.istockphoto.com/id/1018293976/photo/attractive-fashionable-woman-posing-in-white-trendy-sweater-beige-pants-and-autumn-heels-on.jpg?s=612x612&w=0&k=20&c=_CLawpZw6l9z0uV4Uon-7lqaS013E853ub883pkIK3c=");
+    }
+    &:nth-of-type(2) {
+      background-image: url("https://fault-magazine.com/wp-content/uploads/2023/02/bruce-mars-qNF8jx8ZsFY-unsplash.jpg");
+    }
+    &:nth-of-type(3) {
+      background-image: url("https://www.kidrovia.com/wp-content/uploads/2024/02/Kidrovia.png");
+    }
     a {
       font-size: 1.3rem;
       color: black;
