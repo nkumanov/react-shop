@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -7,8 +7,12 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        api: 'modern-compiler' // or "modern"
-      }
-    }
-  }
-})
+        silenceDeprecations: ["legacy-js-api"],
+        additionalData: `
+        @use "src/styles/_colors.scss" as *;
+        @use "src/styles/mixin.scss" as *;
+        `,
+      },
+    },
+  },
+});

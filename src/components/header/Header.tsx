@@ -8,7 +8,11 @@ import Category from "../categories/Category";
 import styles from "./Header.module.scss";
 
 function Header() {
-  const loggedUser = useSelector(fromAuthSelectors.isUserLoggedInSelector);
+  const loggedUser =
+    useSelector(fromAuthSelectors.isUserLoggedInSelector) ||
+    localStorage.getItem("auth");
+
+  const userBookmarks = useSelector(fromAuthSelectors.userBookrmarks);
 
   const dispatch = useDispatch();
   const logoutHandler = () => {
@@ -80,7 +84,7 @@ function Header() {
               <li>
                 <Link to="/wishlist">
                   <i className="fa-regular fa-heart"></i>
-                  <span>45</span>
+                  <span>{userBookmarks ?? 0}</span>
                 </Link>
               </li>
               <li>

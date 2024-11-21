@@ -6,7 +6,7 @@ import {
 } from "./models/auth-slice.model";
 import { userLogin, userRegister } from "./auth-thunks";
 
-interface AuthState {
+interface UserState {
   logged: boolean;
   username: string;
   email: string;
@@ -14,9 +14,10 @@ interface AuthState {
   error: any;
   loading: boolean;
   userId: string;
+  cart: any[];
 }
 
-const initialState: AuthState = {
+const initialState: UserState = {
   logged: null,
   username: null,
   email: null,
@@ -24,13 +25,14 @@ const initialState: AuthState = {
   error: null,
   loading: false,
   userId: null,
+  cart: null,
 };
 
 export const authSlice = createSlice({
   name: authSliceName,
   initialState,
   reducers: {
-    logout(state: AuthState) {
+    logout(state: UserState) {
       state.logged = null;
       state.username = null;
       state.email = null;
@@ -39,7 +41,7 @@ export const authSlice = createSlice({
       state.loading = false;
       state.userId = null;
     },
-    clearError(state: AuthState) {
+    clearError(state: UserState) {
       state.error = null;
     },
   },
@@ -60,7 +62,6 @@ export const authSlice = createSlice({
         }
       )
       .addCase(userLogin.rejected, (state, action: PayloadAction<any>) => {
-        console.log(action);
         state.error = action.payload;
       })
       .addCase(userRegister.pending, (state) => {

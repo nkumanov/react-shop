@@ -1,14 +1,11 @@
-@use "../../styles/mixin" as mixin;
-@use "../../styles/colors" as colors;
-
 .footerWrapper {
   padding: 1rem;
-  @include mixin.display-flex(row, space-between, flex-start);
+  @include display-flex(row, space-between, flex-start);
   flex-wrap: wrap;
-  border-top: 1px solid rgb(229, 229, 229);;
+  border-top: 1px solid rgb(229, 229, 229);
   article:nth-of-type(1) {
     width: 65%;
-    @include mixin.display-flex(row, flex-start, flex-start);
+    @include display-flex(row, flex-start, flex-start);
     flex-wrap: wrap;
     div:nth-of-type(1) {
       a {
@@ -24,7 +21,7 @@
     }
     div:nth-of-type(2) {
       width: 60%;
-      @include mixin.display-flex(row, flex-start, flex-start);
+      @include display-flex(row, flex-start, flex-start);
       gap: 2rem;
       ul {
         margin-bottom: 0;
@@ -32,7 +29,7 @@
         li {
           a {
             text-decoration: none;
-            color: colors.$dark;
+            color: $dark;
           }
         }
       }
@@ -46,7 +43,7 @@
       li {
         a {
           text-decoration: none;
-          color: colors.$dark;
+          color: $dark;
         }
       }
     }

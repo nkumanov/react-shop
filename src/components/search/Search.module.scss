@@ -1,8 +1,6 @@
-@use "../../styles/mixin" as mixin;
-
-.searchWrapper{
-    @include mixin.display-flex(row, flex-start, flex-start);
-    padding: 2rem;
-    gap: 2rem;
-    flex-wrap: wrap;
+.searchWrapper {
+  @include display-flex(row, flex-start, flex-start);
+  padding: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
 }

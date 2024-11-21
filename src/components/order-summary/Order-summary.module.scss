@@ -1,10 +1,8 @@
-@use "../../styles/mixin" as mixin;
-
 .orderSummaryWrapper {
   padding: 60px;
 }
 .cartDetails {
-  @include mixin.display-flex(row, space-between, flex-start);
+  @include display-flex(row, space-between, flex-start);
 }
 
 .orderItemsSummary {
@@ -12,10 +10,10 @@
   border: 1px solid rgb(229, 229, 229);
 
   article {
-    @include mixin.display-flex(row, space-between, flex-start);
+    @include display-flex(row, space-between, flex-start);
     padding: 0 2rem;
     section:nth-of-type(1) {
-      @include mixin.display-flex(row, flex-start, flex-start);
+      @include display-flex(row, flex-start, flex-start);
       padding: 2rem;
       gap: 1rem;
       div {
@@ -27,7 +25,7 @@
 
         &:nth-of-type(2) {
           div {
-            @include mixin.display-flex(row, flex-start, flex-start);
+            @include display-flex(row, flex-start, flex-start);
             gap: 5px;
             width: fit-content;
             border: 1px solid rgb(229, 229, 229);
@@ -45,7 +43,7 @@
 
     section:nth-of-type(2) {
       padding: 2rem;
-      @include mixin.display-flex(column, space-between, flex-end);
+      @include display-flex(column, space-between, flex-end);
       gap: 6rem;
       button {
         border: none;
@@ -61,17 +59,17 @@
 
 .orderPaymentSummary {
   width: 30%;
-  @include mixin.display-flex(column, flex-end, flex-start);
+  @include display-flex(column, flex-end, flex-start);
   padding: 1.5rem 1.5rem 0 1.5rem;
   border: 1px solid rgb(229, 229, 229);
   div {
-    @include mixin.display-flex(row, space-between, flex-start);
+    @include display-flex(row, space-between, flex-start);
     span {
       font-weight: 500;
       font-size: 1rem;
     }
     &.paymentProviders {
-      @include mixin.display-flex(row, flex-start, flex-start);
+      @include display-flex(row, flex-start, flex-start);
       gap: 1rem;
       margin-top: 1rem;
       margin-bottom: 1rem;

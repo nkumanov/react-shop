@@ -1,18 +1,16 @@
-@use "../../styles/colors" as colors;
-@use "../../styles/mixin" as mixin;
 .header {
-  @include mixin.display-flex(column, space-between, center);
+  @include display-flex(column, space-between, center);
   padding: 1rem;
   a {
     color: black;
     font-size: 1.5rem;
   }
   .navSection {
-    @include mixin.display-flex(row, space-between, center);
+    @include display-flex(row, space-between, center);
     width: 100%;
     nav {
       flex-wrap: wrap;
-      @include mixin.display-flex(row, flex-start, flex-start);
+      @include display-flex(row, flex-start, flex-start);
       &:nth-of-type(1) {
         width: 35%;
         li {
@@ -46,7 +44,7 @@
   }
 
   .subNavSection {
-    @include mixin.display-flex(row, flex-start, center);
+    @include display-flex(row, flex-start, center);
     width: 100%;
     flex-wrap: wrap;
   }
@@ -56,7 +54,7 @@
   button {
     background: none;
     border: none;
-    color: colors.$dark;
+    color: $dark;
   }
 }
 .custom-toggle::after {
