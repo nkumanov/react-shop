@@ -4,7 +4,7 @@ import {
   IUserRegisterResponse,
   authSliceName,
 } from "./models/auth-slice.model";
-import { userLogin, userRegister } from "./auth-thunks";
+import { userLogin, userRegister } from "./auth.thunks";
 
 interface UserState {
   logged: boolean;

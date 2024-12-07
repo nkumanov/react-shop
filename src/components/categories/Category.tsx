@@ -3,9 +3,10 @@ import styles from "./Category.module.scss";
 import { Link } from "react-router-dom";
 type CategoryProps = {
   title: string;
-  subTitles: { title: string; path: string }[];
+  category: string;
+  subTitles: { title: string; subCategory: string }[];
 };
-function Category({ title, subTitles }: CategoryProps) {
+function Category({ title, category, subTitles }: CategoryProps) {
   return (
     <>
       <Dropdown className={styles.categoryDropdown}>
@@ -16,7 +17,7 @@ function Category({ title, subTitles }: CategoryProps) {
           {subTitles.map((subTitle) => (
             <Dropdown.Item
               as={Link}
-              to={subTitle.path}
+              to={`search/${category}/${subTitle.subCategory}`}
               className={styles.dropdownItem}
             >
               {subTitle.title}

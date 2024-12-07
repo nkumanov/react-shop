@@ -24,13 +24,13 @@ function Header() {
       <section className={styles.navSection}>
         <nav>
           <li>
-            <Category title="Women" subTitles={headerPath}></Category>
+            <Category title="Women" category="female" subTitles={headerPath}></Category>
           </li>
           <li>
-            <Category title="Men" subTitles={headerPath}></Category>
+            <Category title="Men" category="male" subTitles={headerPath}></Category>
           </li>
           <li>
-            <Category title="Children" subTitles={headerPath}></Category>
+            <Category title="Children" category="children" subTitles={headerPath}></Category>
           </li>
         </nav>
         <article>

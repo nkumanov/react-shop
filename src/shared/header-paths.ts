@@ -1,14 +1,14 @@
-export const headerPath: { title: string; path: string }[] = [
+export const headerPath: { title: string; subCategory: string }[] = [
   {
     title: "T-shirts",
-    path: "/search/t-shirts",
-  },
-  {
-    title: "Swimwear",
-    path: "/search/swimwear",
+    subCategory: "t-shirts",
   },
   {
     title: "Hoodies",
-    path: "/search/hoodies",
+    subCategory: "hoodies",
+  },
+  {
+    title: "Swimwear",
+    subCategory: "swimwear",
   },
 ];
