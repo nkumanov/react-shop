@@ -65,6 +65,4 @@ export const userRegister = createAsyncThunk(
     }
   }
 );
-function rejectWithValue(arg0: string): any {
-  throw new Error("Function not implemented.");
-}
+
