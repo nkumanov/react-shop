@@ -1,13 +1,15 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { IProductData } from "../../../shared/product.model";
-import { getProducts } from "./products.thunks";
+import { getProducts, getProductsByCategory } from "./products.thunks";
 
 interface IProductState {
-  products: IProductData[];
+  productsBySubCategory: IProductData[];
+  productsByCategory: IProductData[];
 }
 
 const initialState: IProductState = {
-  products: [],
+  productsBySubCategory: [],
+  productsByCategory: [],
 };
 
 export const productSlice = createSlice({
@@ -16,12 +18,24 @@ export const productSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getProducts.pending, (state, action: PayloadAction<any>) => {
-        state.products = [];
+      .addCase(getProducts.pending, (state) => {
+        state.productsBySubCategory = [];
       })
-      .addCase(getProducts.fulfilled, (state, action: PayloadAction<any>) => {
-        state.products = action.payload;
-      });
+      .addCase(
+        getProducts.fulfilled,
+        (state, action: PayloadAction<IProductData[]>) => {
+          state.productsBySubCategory = action.payload;
+        }
+      )
+      .addCase(getProductsByCategory.pending, (state) => {
+        state.productsByCategory = [];
+      })
+      .addCase(
+        getProductsByCategory.fulfilled,
+        (state, action: PayloadAction<IProductData[]>) => {
+          state.productsByCategory = action.payload;
+        }
+      );
   },
 });
 

@@ -2,7 +2,24 @@ import React from "react";
 import { Carousel, OverlayTrigger, Tooltip } from "react-bootstrap";
 import styles from "./Product-card.module.scss";
 import { useNavigate } from "react-router-dom";
-function ProductCard() {
+interface IProps {
+  category: string;
+  title: string;
+  subTitle: string;
+  price: string;
+  subCategory: string;
+  description: string;
+  sizes: { size: string; pieces: string }[];
+}
+function ProductCard({
+  title,
+  category,
+  subTitle,
+  subCategory,
+  price,
+  description,
+  sizes,
+}: IProps) {
   const navigate = useNavigate();
   function addProductToWishList(
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -14,7 +31,7 @@ function ProductCard() {
     navigate(`/item/${productId}`);
   }
   return (
-    <article className={styles.cardWrapper} onClick={() => openProductDetails()}>
+    <article className={styles.cardWrapper}>
       <section className={styles.cardHeader}>
         <OverlayTrigger overlay={<Tooltip>Add to wishlist</Tooltip>}>
           <button
@@ -64,13 +81,13 @@ function ProductCard() {
         </Carousel>
       </section>
       <section className={styles.itemDetails}>
-        <p>Nike sportwear</p>
-        <p>sub title</p>
-        <p>Price</p>
-        <p>Available sizes: S, M, XL</p>
+        <p>{title}</p>
+        <p>{subTitle}</p>
+        <p>Price: {price}</p>
+        <p>Available sizes: {sizes?.map((size) => size.size.toUpperCase()).join(", ")}</p>
       </section>
       <section className={styles.cardFooter}>
-        <button className={styles.addToCard}>Add to card</button>
+        <button className={styles.addToCard}>Add to cart</button>
       </section>
     </article>
   );

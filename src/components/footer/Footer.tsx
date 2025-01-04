@@ -14,55 +14,19 @@ function Footer() {
         <div>
           <ul>
             <li>
-              <Link to="">Link1</Link>
+              <Link to="">About us</Link>
             </li>
             <li>
-              <Link to="">Link2</Link>
+              <Link to="">Contacts</Link>
             </li>
             <li>
-              <Link to="">Link3</Link>
+              <Link to="">Privacy Statement</Link>
             </li>
             <li>
-              <Link to="">Link4</Link>
-            </li>
-          </ul>
-          <ul>
-            <li>
-              <Link to="">Link5</Link>
-            </li>
-            <li>
-              <Link to="">Link6</Link>
-            </li>
-            <li>
-              <Link to="">Link7</Link>
-            </li>
-            <li>
-              <Link to="">Link8</Link>
+              <Link to="">Terms & Conditions</Link>
             </li>
           </ul>
         </div>
-      </article>
-      <article>
-        <ul>
-          <li>
-            <Link to="">Link1</Link>
-          </li>
-          <li>
-            <Link to="">Link1</Link>
-          </li>
-          <li>
-            <Link to="">Link1</Link>
-          </li>
-          <li>
-            <Link to="">Link1</Link>
-          </li>
-          <li>
-            <Link to="">Link1</Link>
-          </li>
-          <li>
-            <Link to="">Link1</Link>
-          </li>
-        </ul>
       </article>
     </section>
   );

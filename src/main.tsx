@@ -23,6 +23,10 @@ const router = createBrowserRouter([
         element: <Search></Search>,
       },
       {
+        path: "/search/:category",
+        element: <Search></Search>,
+      },
+      {
         path: "/item/:id",
         element: <ItemDetails></ItemDetails>,
       },

@@ -1,3 +1,7 @@
 import { RootState } from "../../store";
 
-export const getProducts = (state: RootState) => state.products.products;
+export const getProductsBySubcategory = (state: RootState) =>
+  state.products.productsBySubCategory;
+
+export const getProductsByCategory = (state: RootState) =>
+  state.products.productsByCategory;

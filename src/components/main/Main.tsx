@@ -4,13 +4,13 @@ function Main() {
   return (
     <section className={styles.mainWrapper}>
       <article>
-        <Link to="">Tq</Link>
+        <Link to="/search/female">Tq</Link>
       </article>
       <article>
-        <Link to="">Toi</Link>
+        <Link to="/search/male">Toi</Link>
       </article>
       <article>
-        <Link to="">Child</Link>
+        <Link to="/search/children">Child</Link>
       </article>
     </section>
   );
