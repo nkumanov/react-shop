@@ -14,8 +14,9 @@ function Category({ title, category, subTitles }: CategoryProps) {
           {title}
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          {subTitles.map((subTitle) => (
+          {subTitles?.map((subTitle, index) => (
             <Dropdown.Item
+              key={index}
               as={Link}
               to={`search/${category}/${subTitle.subCategory}`}
               className={styles.dropdownItem}
